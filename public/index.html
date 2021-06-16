@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script defer src="js/upload.js"></script>
+    <script defer src="js/slider.js"></script>
+    <script defer src="js/menu.js"></script>
+    <script defer src="js/main.js"></script>
+    <script defer src="js/forms.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="sidebar">
+        <nav class="main-menu">
+            <ul>
+                <li data-tab-target="#main" class="show">
+                    <div class="item" style="margin-bottom: 20px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-music-note-beamed ico" viewBox="0 0 16 16">
+                        <path d="M6 13c0 1.105-1.12 2-2.5 2S1 14.105 1 13c0-1.104 1.12-2 2.5-2s2.5.896 2.5 2zm9-2c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z"/>
+                        <path fill-rule="evenodd" d="M14 11V2h1v9h-1zM6 3v10H5V3h1z"/>
+                        <path d="M5 2.905a1 1 0 0 1 .9-.995l8-.8a1 1 0 0 1 1.1.995V3L5 4V2.905z"/>
+                      </svg>
+                        <span class="nav-text">
+                            S-word Music
+                        </span>
+                    </div>
+                </li>
+                <li data-tab-target="#main" class="has-subnav show">
+                    <div class="item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house ico" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                        <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+                      </svg>
+                        <span class="nav-text">
+                            Главная
+                        </span>
+                    </div>
+                </li>
+                <li class="has-subnav show" data-tab-target="#addPlaylist">
+                    <div class="item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square ico" viewBox="0 0 16 16">
+                            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                          </svg>
+                        <span class="nav-text">
+                            Создать плейлист
+                        </span>
+                    </div>
+                </li>
+                </li>
+                <li class="has-subnav show" data-tab-target="#addMusicDefault">
+                    <div class="item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle ico" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                          </svg>
+                        <span class="nav-text">
+                            Добавить трек
+                        </span>
+                    </div>
+                </li>
+                <li class="has-subnav show" data-tab-target="#video" onclick="showVideoPlaylist()">
+                    <div class="item premium">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera-video ico" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z"/>
+                          </svg>
+                        <span class="nav-text">
+                            Клипы
+                        </span>
+                    </div>
+                </li>
+            </ul>
+            <hr class="solid">
+            <div class="playlists" id="playlists">
+
+            </div>
+        </nav>
+    </div>
+    <header>
+        <div>
+            <button id="changeTheme" class="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-moon-stars" viewBox="0 0 16 16">
+                    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"/>
+                    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+                  </svg>
+            </button>
+            <button class="profile" id="menu-open">
+                <div class="prof-ico" id="profile-ico">
+                    <svg  xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                      </svg>
+                </div>
+            
+              <span id="profile-name">Guest</span>
+              <svg class="arrow-ico" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+              </svg>  
+            </button>
+        </div>
+        <div class="menu-container" id="menu">
+            <ol class="menu" id="drop-menu">
+                <li data-tab-target="#login">Войти</li>
+                <li class="show" data-tab-target="#account">Профиль</li>
+                <li class="show">
+                    <div class="avatar-edit">
+                        <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                        <label for="imageUpload">Обновить аватарку</label>
+                    </div>
+                </li>
+                <li class="show" onclick="defaultUser()">Выйти</li>
+            </ol>
+        </div>
+    </header>
+    <div class="main">
+        <div class="active cards" id="main" data-tab-content></div>
+        <div id="login" data-tab-content>
+            <form id="loginForm" class="form">
+                <input type="text" name="username" placeholder="Имя пользователя" autocomplete="off" />
+                <input type="password" name="password" placeholder="Пароль" />
+                <button>Войти</button>
+                <p class="message">Нет аккаунта? <a href="#" data-tab-target="#register">Создать аккаунт</a></p>
+            </form>
+        </div>
+        <div id="register" data-tab-content>
+            <form id="registerForm" class="form">
+                <input type="text" name="username" placeholder="Имя" autocomplete="off" />
+                <input type="password" name="password" placeholder="Пароль" />
+                <button>Зарегистрироваться</button>
+                <p class="message">Есть аккаунт? <a href="#" data-tab-target="#login">Войти</a></p>
+            </form>
+        </div>
+        <div id="account" data-tab-content>
+            <form id="changePasswordForm" class="form new-pass">
+                <input type="password" name="oldPass" placeholder="Старый пароль" />
+                <input type="password" name="newPass" placeholder="Новый пароль" />
+                <input type="password" name="repeatPass" placeholder="Повторите пароль" />
+                <button>Сохранить изменения</button>
+            </form>
+        </div>
+        <div id="addPlaylist" data-tab-content>
+            <form id="addPlaylistForm" class="form">
+                <div id="playlistImageAddPreview" name="image"></div>
+                <input type="text" placeholder="Название плейлиста" name="name" autocomplete="off" />
+                <div class="AddFile">
+                    <input type='file' id="playlistImageAdd" accept=".png, .jpg, .jpeg" />
+                    <label for="playlistImageAdd" class="choseFile">Изменить аватарку</label>
+                </div>
+                <button id="newPlaylist">Создать</button>
+            </form>
+        </div>
+        <div id="changePlaylist" data-tab-content>
+            <form id="changePlaylistForm" class="form">
+                <div id="playlistImageChangePreview" name="image"></div>
+                <input type="text" id="playlistNameChange" placeholder="Название плейлиста" name="name" autocomplete="off" />
+                <div class="AddFile">
+                    <input type='file' id="playlistImageChange" accept=".png, .jpg, .jpeg" />
+                    <label for="playlistImageChange" class="choseFile">Изменить аватарку</label>
+                </div>
+                <button>Сохранить изменения</button>
+            </form>
+        </div>
+        <div id="addMusicDefault" data-tab-content>
+            <form id="addMusicDefaultForm" class="form">
+                <div id="songImageAddPreviewD" name="image"></div>
+                <div id="songInfo">
+                    <input type="text" placeholder="Название песни" name="name" autocomplete="off" />
+                    <input type="text" placeholder="Артист" name="artist" autocomplete="off" />
+                    <div class="AddFile">
+                        <input type='file' id="songImageAddD" accept=".png, .jpg, .jpeg" />
+                        <label for="songImageAdd" class="choseFile">Добавить аватарку</label>
+                    </div>
+                    <div class="AddFile">
+                        <input type='file' id="songAddD" accept=".mp3, .wav" />
+                        <label for="songAddD" class="choseFile">Выбрать аудио</label>
+                    </div>
+                    <button>Создать</button>
+                </div>
+            </form>
+        </div>
+        <div id="addMusic" data-tab-content>
+            <form id="addMusicForm" class="form">
+                <div id="songImageAddPreview" name="image"></div>
+                <div id="songInfo">
+                    <input type="text" placeholder="Название песни" name="name" autocomplete="off" />
+                    <input type="text" placeholder="Артист" name="artist" autocomplete="off" />
+                    <div class="AddFile">
+                        <input type='file' id="songImageAdd" accept=".png, .jpg, .jpeg" />
+                        <label for="songImageAdd" class="choseFile">Добавить аватарку</label>
+                    </div>
+                    <div class="AddFile">
+                        <input type='file' id="songAdd" accept=".mp3, .wav" />
+                        <label for="songAdd" class="choseFile">Выбрать аудио</label>
+                    </div>
+                    <button>Создать</button>
+                </div>
+            </form>
+        </div>
+        <div id="addVideo" data-tab-content>
+            <form id="addVideoForm" class="form">
+                <div id="videoImageAddPreview" name="image"></div>
+                <div id="videoInfo">
+                    <input type="text" placeholder="Название клипа" name="name" autocomplete="off" />
+                    <input type="text" placeholder="Артист" name="artist" autocomplete="off" />
+                    <div class="AddFile">
+                        <input type='file' id="videoImageAdd" accept=".png, .jpg, .jpeg" />
+                        <label for="videoImageAdd" class="choseFile">Добавить аватарку</label>
+                    </div>
+                    <div class="AddFile">
+                        <input type='file' id="videoAdd" accept=".mp4, .webm" />
+                        <label for="videoAdd" class="choseFile">Выбрать клип</label>
+                    </div>
+                    <button>Создать</button>
+                </div>
+            </form>
+        </div>
+        <div id="video" data-tab-content>
+            <div class="playlist-head">
+                <div id="playlistv-image" style="background-image: url(/images/sssss.jpg)"></div>
+                <span id="playlistv-name">Клипы</span>
+                <div class="addVideo" data-tab-target="#addVideo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                      </svg>
+                </div>
+            </div>
+            <div class="playlist-list">
+                <ul id="songs-list">
+                    <li class="list-header show">
+                        <span id="number">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-hash" viewBox="0 0 16 16">
+                                <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"/>
+                              </svg>
+                        </span>
+                        <span class="main-info">
+                            Клип
+                        </span>
+                        <span class="delete-song">
+                            Удалить
+                        </span>
+                    </li>
+                    <hr class="solid" style="margin-top: -15px; opacity: .1; width: 98%; margin-left: 10px;">
+                    <li class="show" id="playlist-container">
+                        <ul id="playlist-video">
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="playlistShow" data-tab-content>
+            <div class="playlist-head">
+                <div id="playlist-image"></div>
+                <span id="playlist-name"></span>
+                <div class="addSong" data-tab-target="#addMusic">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                      </svg>
+                </div>
+                <div class="changePlaylist" data-tab-target="#changePlaylist" onclick="changePlaylist(this)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                      </svg>
+                </div>
+                <div class="deletePlaylist" onclick="deletePlaylist()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                      </svg>
+                </div>
+            </div>
+            <div class="playlist-list">
+                <ul id="songs-list">
+                    <li class="list-header show">
+                        <span id="number">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-hash" viewBox="0 0 16 16">
+                                <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"/>
+                              </svg>
+                        </span>
+                        <span class="main-info">
+                            Трек
+                        </span>
+                        <span class="delete-song">
+                            Удалить
+                        </span>
+                    </li>
+                    <hr class="solid" style="margin-top: -15px; opacity: .1; width: 98%; margin-left: 10px;">
+                    <li class="show" id="playlist-container">
+                        <ul id="playlist-songs">
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="videoPlayer" style="display:none">
+            <video id="videoo">
+                
+            </video>
+        </div>
+    </div>
+    <footer>
+        <div class="track-container">
+            <div id="track-image"></div>
+            <div class="track-info">
+                <div id="track-name"></div>
+                <div id="track-artist"></div>
+            </div>
+        </div>
+        <div class="center">
+            <div class="controls">
+                <button id="random" class="control">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-shuffle" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.624 9.624 0 0 0 7.556 8a9.624 9.624 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.595 10.595 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.624 9.624 0 0 0 6.444 8a9.624 9.624 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5z"/>
+                        <path d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192zm0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192z"/>
+                    </svg>
+                </button>
+                <button id="back" class="control">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-skip-start-fill" viewBox="0 0 16 16">
+                        <path d="M4 4a.5.5 0 0 1 1 0v3.248l6.267-3.636c.54-.313 1.232.066 1.232.696v7.384c0 .63-.692 1.01-1.232.697L5 8.753V12a.5.5 0 0 1-1 0V4z"/>
+                      </svg>
+                </button>
+                <button id="play" onclick="justplay()" class="control">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+                      </svg>
+                </button>
+                <button id="forward" class="control">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-skip-end-fill" viewBox="0 0 16 16">
+                        <path d="M12.5 4a.5.5 0 0 0-1 0v3.248L5.233 3.612C4.693 3.3 4 3.678 4 4.308v7.384c0 .63.692 1.01 1.233.697L11.5 8.753V12a.5.5 0 0 0 1 0V4z"/>
+                      </svg>
+                </button>
+                <button id="repeat" class="control">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                        <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+                        <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="track-slider">
+                <div class="spotify__playback">
+                    <div class="spotify__progress-time current" id="current">0.00</div>
+                    <div class="slider-container">
+                        <input type="range" min="0" max="100" value="0" id="slider" class="slider" onchange="change_duration()">
+                    </div>
+                    <span class="spotify__progress-time remaining" id="duration">0.00</span>
+                </div>
+            </div>
+        </div>
+        <div class="volume-slider">
+            <div id="volume-pic">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-down-fill" viewBox="0 0 16 16">
+                    <path d="M9 4a.5.5 0 0 0-.812-.39L5.825 5.5H3.5A.5.5 0 0 0 3 6v4a.5.5 0 0 0 .5.5h2.325l2.363 1.89A.5.5 0 0 0 9 12V4zm3.025 4a4.486 4.486 0 0 1-1.318 3.182L10 10.475A3.489 3.489 0 0 0 11.025 8 3.49 3.49 0 0 0 10 5.525l.707-.707A4.486 4.486 0 0 1 12.025 8z"/>
+                    </svg>
+            </div>
+            <input type="range" class="slider volume" onchange="volume_change()" value='10' id="volume" min="0" max="100"></input>
+        </div>
+    </footer>
+</body>
+
+</html>
